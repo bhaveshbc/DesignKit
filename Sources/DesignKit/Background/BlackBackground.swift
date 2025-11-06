@@ -76,17 +76,8 @@ struct DemoView: View {
                 JigFloatingTextField(placeholderText: "Password", height: 55)
                 JigPressableButton(title: "Login", buttonHeight: 55, action: {})
                 JigCheckboxView(isChecked: $isChecked, title: "Please Select Term & Condition.")
-                joinJiguarButton
             }.padding(.horizontal, 20)
         }
-    }
-    
-    private var joinJiguarButton: some View {
-        Button("Join Jiguar Provider Network") {
-            print("Tapped")
-        }
-        .foregroundColor(.primaryColor1)
-        .underline()
     }
 }
 
