@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct JigFloatingTextField: View {
+public struct JigFloatingTextField: View {
+    
     let placeholderText: String
     @State private var text: String = ""
     
@@ -20,14 +21,14 @@ struct JigFloatingTextField: View {
     private var onTextAction: ((_ oldValue : String ,_ newValue : String) -> ())?
     var height: CGFloat = 50
     
-    init(placeholderText: String, height: CGFloat = 50, onTextAction: ((_: String, _: String) -> Void)? = nil) {
+    public  init(placeholderText: String, height: CGFloat = 50, onTextAction: ((_: String, _: String) -> Void)? = nil) {
         self.placeholderText = placeholderText
         self.onTextAction = onTextAction
         self.height = height
     }
     
     
-    var body: some View {
+    public var body: some View {
         VStack {
             ZStack(alignment: .leading) {
                 Text(placeholderText)

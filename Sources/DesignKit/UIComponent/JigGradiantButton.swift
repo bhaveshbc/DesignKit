@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct GradientButton: View {
+public struct GradientButton: View {
     var title: String
     var action: () -> Void
     
-    var body: some View {
+    public   var body: some View {
         Button(action: action) {
             Text(title)
                 .font(.headline)

@@ -5,11 +5,17 @@
 //  Created by Bhavesh Chaudhari on 06/11/25.
 //
 import SwiftUI
-struct JigCheckboxView: View {
+public struct JigCheckboxView: View {
+    
     @Binding var isChecked: Bool
     var title: String
     
-    var body: some View {
+    public init(isChecked: Binding<Bool>, title: String) {
+        _isChecked = isChecked
+        self.title = title
+    }
+    
+    public   var body: some View {
         Button(action: {
             isChecked.toggle()
         }) {

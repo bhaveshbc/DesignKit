@@ -5,15 +5,21 @@
 //  Created by Bhavesh Chaudhari on 06/11/25.
 //
 import SwiftUI
-struct JigPressableButton: View {
+public struct JigPressableButton: View {
     
-    var title: String
-    var buttonHeight: CGFloat = 50
-    var action: () -> Void
+      var title: String
+      var buttonHeight: CGFloat = 50
+      var action: () -> Void
 
     @State private var isPressed = false
     
-    var body: some View {
+    public  init(title: String, buttonHeight: CGFloat, action: @escaping () -> Void) {
+        self.title = title
+        self.buttonHeight = buttonHeight
+        self.action = action
+    }
+    
+    public  var body: some View {
         Button {
             action()
         } label: {

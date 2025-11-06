@@ -71,9 +71,7 @@ struct DemoView: View {
         ZStack(alignment: .bottom) {
             BlackBackground()
             VStack(spacing:20) {
-                JigCountryPickerView(title: "India", dropDownClicked: {
-                    
-                }).frame(height: 55)
+               
                 JigFloatingTextField(placeholderText: "User Name", height: 55)
                 JigFloatingTextField(placeholderText: "Password", height: 55)
                 JigPressableButton(title: "Login", buttonHeight: 55, action: {})

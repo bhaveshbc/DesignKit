@@ -5,7 +5,7 @@
 //  Created by Bhavesh Chaudhari on 06/11/25.
 //
 import SwiftUI
-struct JigShadowContainer<Content: View>: View {
+public struct JigShadowContainer<Content: View>: View {
     var cornerRadius: CGFloat = 12
     var shadowColor: Color = .black.opacity(0.2)
     var shadowRadius: CGFloat = 8
@@ -14,7 +14,7 @@ struct JigShadowContainer<Content: View>: View {
     
     @ViewBuilder var content: () -> Content
     
-    var body: some View {
+    public  var body: some View {
         content()
             .padding()
             .background(backgroundColor)
