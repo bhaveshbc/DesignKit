@@ -24,8 +24,9 @@ public struct JigPressableButton: View {
             action()
         } label: {
             Text(title)
-                .font(.headline)
-                .foregroundColor(.white)
+                .font(.caption2)
+                .fontWeight(.semibold)
+                .foregroundColor(Color.white)
                 .frame(height: buttonHeight)
                 .frame(maxWidth: .infinity)
                 .background(
@@ -37,15 +38,15 @@ public struct JigPressableButton: View {
                 .scaleEffect(isPressed ? 0.97 : 1.0)
                 .shadow(color: .orange.opacity(0.3), radius: 10, x: 0, y: 6)
         }
-        .buttonStyle(.plain)
-        .gesture(
-            DragGesture(minimumDistance: 0)
-                .onChanged { _ in withAnimation(.spring()) { isPressed = true } }
-                .onEnded { _ in
-                    withAnimation(.spring()) { isPressed = false }
-                    action()
-                }
-        )
+//        .buttonStyle(.plain)
+//        .gesture(
+//            DragGesture(minimumDistance: 0)
+//                .onChanged { _ in withAnimation(.spring()) { isPressed = true } }
+//                .onEnded { _ in
+//                    withAnimation(.spring()) { isPressed = false }
+//                    action()
+//                }
+//        )
        
     }
 }

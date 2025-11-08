@@ -45,7 +45,7 @@ public struct JigFloatingTextField: View {
             .frame(height: height)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(.gray, lineWidth: 2)
+                    .stroke(.white, lineWidth: 1)
             )
             .onChange(of: text) { oldValue, newValue in
                 withAnimation(animation) {

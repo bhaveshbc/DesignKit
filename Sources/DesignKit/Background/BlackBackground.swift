@@ -39,7 +39,7 @@ public struct BlackBackground: View {
                         Circle()
                             .strokeBorder(Color.white.opacity(0.3), lineWidth: 1)
                     )
-                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                    .shadow(color: Color.white.opacity(0.3), radius: 10, x: 0, y: 5)
                     .offset(circleOffsets[index])
                     .blur(radius: 10)
                     .onAppear {
@@ -84,6 +84,3 @@ struct DemoView: View {
 #Preview {
     DemoView()
 }
-
-
-
