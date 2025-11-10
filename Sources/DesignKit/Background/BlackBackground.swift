@@ -70,13 +70,13 @@ struct DemoView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             BlackBackground()
-            VStack(spacing:20) {
-               
-                JigFloatingTextField(placeholderText: "User Name", height: 55)
-                JigFloatingTextField(placeholderText: "Password", height: 55)
-                JigPressableButton(title: "Login", buttonHeight: 55, action: {})
-                JigCheckboxView(isChecked: $isChecked, title: "Please Select Term & Condition.")
-            }.padding(.horizontal, 20)
+//            VStack(spacing:20) {
+//               
+//                JigFloatingTextField(placeholderText: "User Name", height: 55)
+//                JigFloatingTextField(placeholderText: "Password", height: 55)
+//                JigPressableButton(title: "Login", buttonHeight: 55, action: {})
+//                JigCheckboxView(isChecked: $isChecked, title: "Please Select Term & Condition.")
+//            }.padding(.horizontal, 20)
         }
     }
 }

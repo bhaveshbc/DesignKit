@@ -10,7 +10,7 @@ import SwiftUI
 public struct JigFloatingTextField: View {
     
     let placeholderText: String
-    @State private var text: String = ""
+    @Binding  var text: String
     
     let animation: Animation = .spring(response: 0.1, dampingFraction: 0.8)
     
@@ -21,10 +21,11 @@ public struct JigFloatingTextField: View {
     private var onTextAction: ((_ oldValue : String ,_ newValue : String) -> ())?
     var height: CGFloat = 50
     
-    public  init(placeholderText: String, height: CGFloat = 50, onTextAction: ((_: String, _: String) -> Void)? = nil) {
+    public  init(placeholderText: String, text: Binding<String>, height: CGFloat = 50, onTextAction: ((_: String, _: String) -> Void)? = nil) {
         self.placeholderText = placeholderText
         self.onTextAction = onTextAction
         self.height = height
+        self._text = text
     }
     
     
@@ -32,13 +33,13 @@ public struct JigFloatingTextField: View {
         VStack {
             ZStack(alignment: .leading) {
                 Text(placeholderText)
-                    .foregroundStyle($text.wrappedValue.isEmpty ? Color.white : Color.gray)
+                    .foregroundStyle($text.wrappedValue.isEmpty ? Color.white : Color.white)
                     .font(.headline)
                     .offset(y: placeholderOffset)
                     .scaleEffect(scaleEffectValue, anchor: .leading)
                 
                 TextField("", text: $text)
-                    .font(.headline)
+                    .font(.headline).autocorrectionDisabled() .textInputAutocapitalization(.never)
                     .foregroundStyle(Color.white).offset(y: textfieldOffset)
             }
             .padding(.horizontal, 15)
