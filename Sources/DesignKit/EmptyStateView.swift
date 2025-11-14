@@ -19,7 +19,7 @@ public struct EmptyStateView: View {
             Spacer()
             Text(message)
                 .font(.headline)
-                .foregroundStyle(Color.white)
+                .foregroundStyle(Color.black)
             Spacer()
         }
     }
