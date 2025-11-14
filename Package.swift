@@ -18,7 +18,7 @@ let package = Package(
         .target(
                     name: "DesignKit",
                     resources: [
-                        .process("Resources") // 👈 required
+                        .process("Resources")
                     ]
                 ),
         .testTarget(
