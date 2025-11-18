@@ -12,6 +12,8 @@ public struct CircularRatingView: View {
     let rating: Double
     let totalVotes: Int?
     
+    @State private var animatedProgress: CGFloat = 0
+    
     public init(rating: Double, totalVotes: Int?) {
         self.rating = rating
         self.totalVotes = totalVotes
@@ -21,7 +23,6 @@ public struct CircularRatingView: View {
         rating / 10.0
     }
     
-    // MARK: - Color based on rating
     var ratingColor: Color {
         switch rating {
         case 7...10: return .green
@@ -30,30 +31,32 @@ public struct CircularRatingView: View {
         }
     }
     
-    public   var body: some View {
+    public var body: some View {
         VStack(spacing: 6) {
             ZStack {
-             
+                
                 Circle()
                     .stroke(Color.gray.opacity(0.25), lineWidth: 8)
                 
                 Circle()
-                    .trim(from: 0, to: normalized)
+                    .trim(from: 0, to: animatedProgress)   // <— animate this
                     .stroke(
                         ratingColor,
                         style: StrokeStyle(lineWidth: 8, lineCap: .round)
                     )
-                    .rotationEffect(.degrees(-90)) // Start at top
-                    .animation(.easeOut(duration: 0.6), value: rating)
+                    .rotationEffect(.degrees(-90))
                 
-                // Rating Text
                 Text(String(format: "%.1f", rating))
                     .font(.headline)
                     .bold()
             }
             .frame(width: 60, height: 60)
+            .onAppear {
+                withAnimation(.easeOut(duration: 0.8)) {
+                    animatedProgress = normalized
+                }
+            }
             
-            // Optional vote count
             if let votes = totalVotes {
                 Text("\(votes) votes")
                     .font(.caption)
