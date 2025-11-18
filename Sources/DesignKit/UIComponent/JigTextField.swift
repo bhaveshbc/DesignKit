@@ -39,7 +39,10 @@ public struct JigFloatingTextField: View {
                     .scaleEffect(scaleEffectValue, anchor: .leading)
                 
                 TextField("", text: $text)
-                    .font(.headline).autocorrectionDisabled() .textInputAutocapitalization(.never)
+                    .font(.headline).autocorrectionDisabled()
+                    #if os(iOS)
+                    .textInputAutocapitalization(.never)
+                    #endif
                     .foregroundStyle(Color.white).offset(y: textfieldOffset)
             }
             .padding(.horizontal, 15)
